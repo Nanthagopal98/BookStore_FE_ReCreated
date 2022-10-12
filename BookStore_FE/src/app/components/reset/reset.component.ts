@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from 'src/app/services/userService/user.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-reset',
@@ -10,7 +11,8 @@ import { UserService } from 'src/app/services/userService/user.service';
 export class ResetComponent implements OnInit {
   resetForm!: FormGroup;
   submitted = false;
-  constructor(private formBuilder: FormBuilder, private userService : UserService) { }
+  constructor(private formBuilder: FormBuilder, private userService : UserService,
+    private snackbar : MatSnackBar) { }
 
   ngOnInit(): void {
     this.resetForm = this.formBuilder.group({
@@ -29,6 +31,7 @@ export class ResetComponent implements OnInit {
     }
     this.userService.reset(reqData).subscribe((response : any) =>{
       console.log(response);
+      this.snackbar.open(response.message,'',{duration : 2000})
     })
   }
   }

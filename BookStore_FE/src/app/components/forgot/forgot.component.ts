@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from 'src/app/services/userService/user.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-forgot',
@@ -10,7 +11,8 @@ import { UserService } from 'src/app/services/userService/user.service';
 export class ForgotComponent implements OnInit {
 forgotForm! : FormGroup;
 submitted = false;
-  constructor(private formBuilder : FormBuilder, private userService : UserService) { }
+  constructor(private formBuilder : FormBuilder, private userService : UserService,
+    private snackbar : MatSnackBar) { }
 
   ngOnInit(): void {
     this.forgotForm = this.formBuilder.group({
@@ -26,6 +28,7 @@ submitted = false;
     }
     this.userService.forgot(reqData).subscribe((response : any) =>{
       console.log(response);
+      this.snackbar.open(response.message,'',{duration : 2000})
     })
     }
   }
