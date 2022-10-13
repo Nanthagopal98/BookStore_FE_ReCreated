@@ -2,7 +2,7 @@
   <div class="cont-1">
     <div>
       <span style=" font-weight:500; font-size: 20px; margin-right: 5px;">Books</span>
-      <span>( items)</span>
+      <span>({{booksCount}} items)</span>
     </div>
     <select name="sort" class="drop-1" style="color: #878787;">
       <option style="color: lightgrey;">--Sort by relevance--</option>
@@ -11,7 +11,7 @@
       <option value="recent added">Recently added</option>
     </select>
   </div>
-  <div class="bookContainer" *ngFor="let books of bookList" >
+  <div class="bookContainer" *ngFor="let books of bookList" (click)="quickView(books.bookId)">
     <div class="books">
       <div class="images">
         <img class="bookImg" src="{{books.bookImage}}">

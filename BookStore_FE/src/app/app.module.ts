@@ -28,6 +28,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { GetbooksComponent } from './components/getbooks/getbooks.component';
 
 import { MatSelectModule } from '@angular/material/select';
+import { QuickViewComponent } from './components/quick-view/quick-view.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,6 +39,8 @@ import { MatSelectModule } from '@angular/material/select';
     ResetComponent,
     HomeComponent,
     GetbooksComponent,
+    QuickViewComponent,
+
   ],
   imports: [
     BrowserModule,
