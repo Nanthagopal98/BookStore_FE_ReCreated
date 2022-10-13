@@ -44,7 +44,7 @@ token = localStorage.getItem('token');
         'Authorization':'Bearer '+this.token
       })
     }
-    return this.httpServise.postAuthorised('User/Reset?password='+reqData.password+'&confirmPassword='+reqData.confirmPassword,{}, true , header);
+    return this.httpServise.postService('User/Reset?password='+reqData.password+'&confirmPassword='+reqData.confirmPassword,{}, true , header);
   }
 
 }

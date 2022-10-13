@@ -1,6 +1,7 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ForgotComponent } from './components/forgot/forgot.component';
+import { GetbooksComponent } from './components/getbooks/getbooks.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
@@ -14,7 +15,8 @@ const routes: Routes = [
   {path:'reset/:token', component : ResetComponent},
   {path :'home', component : HomeComponent,
   children : [
-    {path:'', redirectTo:"/home/getbooks", pathMatch:'full' },
+    {path:'', redirectTo:"/home/books", pathMatch:'full' },
+    { path: 'books', component:GetbooksComponent}
   ]
 }
   

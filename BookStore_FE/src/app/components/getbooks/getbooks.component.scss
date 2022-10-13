@@ -1,0 +1,76 @@
+.container{
+    width: 1000px;
+    border: 0px solid black;
+}
+.cont-1{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0px;
+    align-items: center;
+}
+.drop-1{
+    padding: 5px;
+}
+
+.books{
+    display: flex;
+    flex-direction: column;
+    height: 280px;
+    width: 180px;
+    border: 1px solid #E2E2E2;
+    border-radius: 5px;
+}
+.bookContainer{
+    display: inline-flex;
+    margin-top: 20px;
+    flex-direction: column;
+    margin: 15px 7px;
+    
+}
+.bookImg{
+    height: 150px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    width: 100px
+    
+}
+.images{
+    display: flex;
+    width: 100%;
+    background-color: #F5F5F5;
+    height: 65%;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    
+}
+.bookdesc{
+    display: flex;
+    padding: 10px;
+    gap: 3px;
+    flex-direction: column;
+}
+.rating{
+    border: 0px solid black;
+    padding: 0px 5px;
+    background-color: #388E3C;
+    border-radius: 2px;
+    display: flex;
+    gap: 3px;
+    align-items: center;
+    width: fit-content;
+}
+::ng-deep{
+.mat-form-field-flex{
+    border: 1px solid #E2E2E2;
+    border-radius: 5px;
+}
+.mat-form-field-appearance-fill{
+    border-radius: 5em;
+}
+.mat-form-field-type-mat-select:not(.mat-form-field-disabled){
+    border: 1px solid #E2E2E2;
+    border-radius: 5px;
+}
+}

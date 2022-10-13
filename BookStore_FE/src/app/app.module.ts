@@ -25,7 +25,9 @@ import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { GetbooksComponent } from './components/getbooks/getbooks.component';
 
+import { MatSelectModule } from '@angular/material/select';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,6 +36,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     ForgotComponent,
     ResetComponent,
     HomeComponent,
+    GetbooksComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,7 +50,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatMenuModule,
     FormsModule,
     NgbModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

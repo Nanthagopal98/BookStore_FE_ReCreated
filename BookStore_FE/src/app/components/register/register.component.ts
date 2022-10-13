@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from 'src/app/services/userService/user.service';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { FormGroupDirective } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -11,7 +12,9 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class RegisterComponent implements OnInit {
   RegisterForm! : FormGroup;
+  formdirective! : FormGroupDirective
   submitted = false;
+
   constructor( private formBuilder : FormBuilder, private user :UserService, private router : Router,
     private snackbar : MatSnackBar) { }
 
@@ -36,6 +39,8 @@ export class RegisterComponent implements OnInit {
       this.user.registerUser(reqData).subscribe((response: any) => {
         console.log(response);
         this.snackbar.open(response.message, '',{ duration: 2000})
+        //this.RegisterForm.reset()
+        this.formdirective.resetForm();
         this.router.navigateByUrl('/login');
       }
       );
