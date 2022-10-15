@@ -29,6 +29,7 @@ import { GetbooksComponent } from './components/getbooks/getbooks.component';
 
 import { MatSelectModule } from '@angular/material/select';
 import { QuickViewComponent } from './components/quick-view/quick-view.component';
+import { FilterPipe } from './pipe/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { QuickViewComponent } from './components/quick-view/quick-view.component
     HomeComponent,
     GetbooksComponent,
     QuickViewComponent,
+    FilterPipe
 
   ],
   imports: [

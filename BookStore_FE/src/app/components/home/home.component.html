@@ -5,7 +5,7 @@
             <span class="header-font">Bookstore</span>
             <div class="search">
                 <img src="../../../assets/search_icon.svg">
-                <input class="search-input" type="text" placeholder="Search...">
+                <input class="search-input" type="text" placeholder="Search..." (keyup)="search($event)">
             </div>
             <div class="rh-icon">
                 <button class="header-button" style="margin-left: 170px;">
@@ -23,7 +23,12 @@
                     <span style="font-weight: 550;">Welcome</span>
                     <span style="opacity: .5; margin-top:5px">To access account and manage order</span>
                 </div>
-                <button mat-menu-item class="mat-menu" routerLink="/login">LOGIN/SIGNUP</button>
+                <div *ngIf="isLoggegIn; else notLoggedIn">
+                <button mat-menu-item class="mat-menu" routerLink="/login">LOGGED IN</button>
+                </div>
+                <ng-template #notLoggedIn>
+                    <button mat-menu-item class="mat-menu" routerLink="/login">LOGIN/SIGNUP</button>
+                  </ng-template>
                 <button mat-menu-item routerLink="/home/order"><img style="height: 25px; width:25px; padding-right:10px;"  src="../../../assets/orders-gray.svg">My orders</button>
                 <button mat-menu-item routerLink="/home/wishlist"> <img  style="height: 25px; width:25px; padding-right:10px;"  src="../../../assets/favorite-gray.svg">Wishlist</button>
                 <button mat-menu-item (click)="logout()"><img style="height: 20px; width:25px; padding-right:10px; opacity: .6;" src="../../../assets/logout_FILL0_wght400_GRAD0_opsz48.svg"> Logout</button>

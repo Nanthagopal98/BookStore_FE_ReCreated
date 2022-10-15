@@ -5,23 +5,26 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class DataServiceService {
-
+  bookId : any
+  message : any
+  
   constructor() { }
 
-  /* private messageSource = new BehaviorSubject([]);
+  private messageSource = new BehaviorSubject([]);
   incomingData = this.messageSource.asObservable();
 
   outgoingData(message: any) {
     console.log(message)
     this.messageSource.next(message)
-  } */
-  message : any
+  } 
+
+  
 
   setMessage(data : any){
-    this.message = data
+    this.bookId = data
   }
 
   getMessage(){
-    return this.message
+    return this.bookId
   }
 }

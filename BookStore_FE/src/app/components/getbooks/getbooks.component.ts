@@ -13,6 +13,7 @@ export class GetbooksComponent implements OnInit {
   bookList : any
   booksCount : any
   bookById : any
+  filterBook : any
 
   constructor(private bookService : BookService,
     private router : Router,
@@ -21,6 +22,7 @@ export class GetbooksComponent implements OnInit {
     
   ngOnInit(): void {
     this.onSubmit()
+    this.dataService.incomingData.subscribe((response : any)=> {this.filterBook = response})
   }
   onSubmit() {
     this.bookService.getAllBooks().subscribe((response: any) => {
@@ -36,4 +38,19 @@ export class GetbooksComponent implements OnInit {
     this.dataService.setMessage(bookId)
     this.router.navigateByUrl("/home/quickView")
   }
+
+  LowToHigh(){
+    this.bookList = this.bookList.sort((low : any, high : any)=> low.discountPrice - high.discountPrice)
+  }
+
+  HighToLow(){
+    this.bookList = this.bookList.sort((low : any, high : any)=> high.discountPrice - low.discountPrice)
+  }
+
+  RecentlyAdded(){
+    console.log(this.bookList)
+    this.bookList.reverse()
+  }
+
+
 }

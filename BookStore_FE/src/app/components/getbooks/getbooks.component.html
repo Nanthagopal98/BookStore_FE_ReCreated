@@ -4,14 +4,14 @@
       <span style=" font-weight:500; font-size: 20px; margin-right: 5px;">Books</span>
       <span>({{booksCount}} items)</span>
     </div>
-    <select name="sort" class="drop-1" style="color: #878787;">
-      <option style="color: lightgrey;">--Sort by relevance--</option>
-      <option value="low to high">Low to high</option>
-      <option value="high to low">High to low</option>
-      <option value="recent added">Recently added</option>
-    </select>
+    <button mat-button [matMenuTriggerFor]="menu" class="sort">Sort by relevence</button>
+    <mat-menu style="display: flex; flex-direction:column" #menu="matMenu" style="color: #878787;" Sort by relevance>
+      <button value="low to high" (click)="LowToHigh()" class="sort-bt">Low to high</button>
+      <button value="high to low" (click)="HighToLow()" class="sort-bt">High to low</button>
+      <button value="recent added" (click)="RecentlyAdded()" class="sort-bt">Recently added</button>
+    </mat-menu>
   </div>
-  <div class="bookContainer" *ngFor="let books of bookList" (click)="quickView(books.bookId)">
+  <div class="bookContainer" *ngFor="let books of bookList | filter : filterBook" (click)="quickView(books.bookId)">
     <div class="books">
       <div class="images">
         <img class="bookImg" src="{{books.bookImage}}">
