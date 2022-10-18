@@ -63,7 +63,7 @@ export class CartComponent implements OnInit {
     console.log(this.increase)
     let get = this.increase[0]
     console.log(get.quantity)
-    if(get.quantity = 0){
+    if(get.quantity > 0){
      let updateQty = get.quantity + 1
      let reqData = {
       cartId : get.cartId,
