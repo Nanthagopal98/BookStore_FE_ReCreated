@@ -40,4 +40,46 @@ export class BookService {
     }
     return this.httpService.getService('FeedBack/GetAllFeedback?bookId='+bookId,true,header)
   }
-}
+
+  AddtoCart(reqData : any){
+    let header = {
+      headers : new HttpHeaders({
+        'Content-type':'application/json',
+        'Authorization':'Bearer '+this.token
+      })
+    }
+    return this.httpService.postService('Cart/AddToCart', reqData, true, header)
+  }
+
+  AddtoWishList(reqData : any){
+    let header = {
+      headers : new HttpHeaders({
+        'Content-type':'application/json',
+        'Authorization':'Bearer '+this.token
+      })
+    }
+    return this.httpService.postService('WishList/AddToWishList', reqData, true, header)
+  }
+
+  getCart(){
+    let header = {
+      headers : new HttpHeaders({
+        'Content-type':'application/json',
+        'Authorization':'Bearer '+this.token
+      })
+    }
+    return this.httpService.getService('Cart/GetAllCart', true, header)
+  }
+
+  updateCart(reqData : any){
+    let header = {
+      headers : new HttpHeaders({
+        'Content-type':'application/json',
+        'Authorization':'Bearer '+this.token
+      })
+    }
+    return this.httpService.putService('Cart/UpdateCart',reqData, true, header)
+  }
+
+  }
+

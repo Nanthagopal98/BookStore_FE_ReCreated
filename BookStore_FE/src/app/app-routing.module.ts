@@ -1,5 +1,6 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CartComponent } from './components/cart/cart.component';
 import { ForgotComponent } from './components/forgot/forgot.component';
 import { GetbooksComponent } from './components/getbooks/getbooks.component';
 import { HomeComponent } from './components/home/home.component';
@@ -19,6 +20,7 @@ const routes: Routes = [
     {path:'', redirectTo:"/home/books", pathMatch:'full' },
     { path: 'books', component:GetbooksComponent},
     { path : 'quickView', component:QuickViewComponent},
+    { path : 'cart', component : CartComponent}
   ]
 }
   

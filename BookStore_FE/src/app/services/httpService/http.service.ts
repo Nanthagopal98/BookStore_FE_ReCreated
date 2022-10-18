@@ -17,4 +17,7 @@ export class HttpService {
     return this.httpclient.get(this.baseurl+url,token && httpOptions);
   }
 
+  putService(url : string, reqData : any,  token : boolean = true , httpOptions : any = {}){
+    return this.httpclient.put(this.baseurl+url,reqData,token && httpOptions);
+  }
 }

@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { BookService } from 'src/app/services/bookService/book.service';
 import { Router } from '@angular/router';
 import { DataServiceService } from 'src/app/services/dataService/data-service.service';
-import { EmptyExpr } from '@angular/compiler';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-quick-view',
@@ -19,7 +19,8 @@ export class QuickViewComponent implements OnInit {
 
   constructor(private bookService : BookService,
     private router : Router,
-    private dataService : DataServiceService) { }
+    private dataService : DataServiceService,
+    private snackBar : MatSnackBar) { }
 
 
   ngOnInit(): void {
@@ -41,6 +42,27 @@ export class QuickViewComponent implements OnInit {
       console.log(response);
       this.feedbackList = response.data
       console.log(this.feedbackList)
+    })
+  }
+
+  cart(){
+    let reqData = {
+      bookId: this.bookId,
+      quantity: 1
+    }
+    this.bookService.AddtoCart(reqData).subscribe((response : any) =>{
+      console.log(response);
+      this.snackBar.open(response.message,'',{duration : 2000})
+    })
+  }
+
+  wishlist(){
+    let reqData = {
+      bookId: this.bookId,
+    }
+    this.bookService.AddtoCart(reqData).subscribe((response : any) =>{
+      console.log(response);
+      this.snackBar.open(response.message,'',{duration : 2000})
     })
   }
 }
